@@ -13,6 +13,7 @@ import {
   UserProfile,
 } from "./pages";
 
+
 function Layout() {
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
