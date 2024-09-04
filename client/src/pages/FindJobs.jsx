@@ -115,9 +115,9 @@ const FindJobs = () => {
         setLocation={setJobLocation}
       />
 
-      <div className='container mx-auto flex gap-6 2xl:gap-10 md:px-5 py-0 md:py-6 bg-[#f7fdfd]'>
-        <div className='hidden md:flex flex-col w-1/6 h-fit bg-white shadow-sm'>
-          <p className='text-lg font-semibold text-slate-600'>Filter Search</p>
+      <div className='container mx-auto flex gap-6 2xl:gap-10 md:px-5 py-0 md:py-6 bg-white'> {/* Фон білий */}
+        <div className='hidden md:flex flex-col w-1/6 h-fit bg-white text-black shadow-sm'> {/* Фільтр чорний з білим текстом */}
+          <p className='text-lg font-semibold'>Filter Search</p>
 
           <div className='py-2'>
             <div className='flex justify-between mb-3'>
@@ -137,7 +137,7 @@ const FindJobs = () => {
                   <input
                     type='checkbox'
                     value={jtype}
-                    className='w-4 h-4'
+                    className='w-4 h-4 bg-white text-black' /* Білий фон у чекбоксі */
                     onChange={(e) => filterJobs(e.target.value)}
                   />
                   <span>{jtype}</span>
@@ -164,7 +164,7 @@ const FindJobs = () => {
                   <input
                     type='checkbox'
                     value={exp?.value}
-                    className='w-4 h-4'
+                    className='w-4 h-4 bg-white text-black' /* Білий фон у чекбоксі */
                     onChange={(e) => filterExperience(e.target.value)}
                   />
                   <span>{exp.title}</span>
@@ -174,11 +174,10 @@ const FindJobs = () => {
           </div>
         </div>
 
-        <div className='w-full md:w-5/6 px-5 md:px-0'>
+        <div className='w-full md:w-5/6 px-5 md:px-0 bg-white text-black'> {/* Фон білий, текст чорний */}
           <div className='flex items-center justify-between mb-4'>
             <p className='text-sm md:text-base'>
-              Shwoing: <span className='font-semibold'>{recordCount}</span> Jobs
-              Available
+              Showing: <span className='font-semibold'>{recordCount}</span> Jobs Available
             </p>
 
             <div className='flex flex-col md:flex-row gap-0 md:gap-2 md:items-center'>
@@ -211,7 +210,7 @@ const FindJobs = () => {
               <CustomButton
                 onClick={handleShowMore}
                 title='Load More'
-                containerStyles={`text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600`}
+                containerStyles={`bg-black text-white py-1.5 px-5 focus:outline-none hover:bg-white hover:text-black rounded-full text-base border border-black`}
               />
             </div>
           )}

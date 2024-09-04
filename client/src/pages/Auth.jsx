@@ -16,7 +16,7 @@ const Auth = () => {
   }
   return (
     <div className='w-full '>
-      <img src={Office} alt='Office' className='object-contain ' />
+    
 
       <SignUp open={open} setOpen={setOpen} />
     </div>

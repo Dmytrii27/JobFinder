@@ -31,8 +31,8 @@ const CompanyCard = ({ cmp }) => {
       </div>
 
       <div className='w-1/4 h-full flex flex-col items-center'>
-        <p className='text-blue-600 font-semibold'>{cmp?.jobPosts?.length}</p>
-        <span className='text-xs md:base font-normal text-gray-600'>
+        <p className='text-black-600 font-semibold'>{cmp?.jobPosts?.length}</p>
+        <span className='text-xs md:base font-normal text-red-600'>
           Jobs Posted
         </span>
       </div>

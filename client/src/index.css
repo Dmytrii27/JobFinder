@@ -1,4 +1,3 @@
-
 :root {
   font-family: Inter, Arial, sans-serif;
   line-height: 1.5;
@@ -10,15 +9,15 @@ a {
   text-decoration: inherit;
 }
 
-
 /* #18171D #212121 */
-li:hover{
-font-weight: 700;
-color: #33389c;
+li:hover {
+  font-weight: 700;
+  color: #000000; /* Зміна кольору на чорний */
 }
 
 body {
   box-sizing: border-box;
+  background-color: #FFFFFF; /* Залишаємо білий фон */
 }
 
 .slider {
@@ -34,13 +33,13 @@ body {
 }
 
 .slider__track {
-  background-color: #ced4da;
+  background-color: #333333; /* Зміна кольору треку на темний сірий або чорний */
   width: 100%;
   z-index: 1;
 }
 
 .slider__range {
-  background-color: #9fe5e1;
+  background-color: #000000; /* Зміна кольору на чорний */
   z-index: 2;
 }
 
@@ -69,10 +68,10 @@ body {
 
 /* For Chrome browsers */
 .thumb::-webkit-slider-thumb {
-  background-color: #220f77;
+  background-color: #000000; /* Зміна кольору на чорний */
   border: none;
   border-radius: 50%;
-  box-shadow: 0 0 1px 1px #ced4da;
+  box-shadow: 0 0 1px 1px #333333; /* Зміна тіні на темно-сірий */
   cursor: pointer;
   height: 18px;
   width: 18px;
@@ -83,10 +82,10 @@ body {
 
 /* For Firefox browsers */
 .thumb::-moz-range-thumb {
-  background-color: #f1f5f7;
+  background-color: #000000; /* Зміна кольору на чорний */
   border: none;
   border-radius: 50%;
-  box-shadow: 0 0 1px 1px #ced4da;
+  box-shadow: 0 0 1px 1px #333333; /* Зміна тіні на темно-сірий */
   cursor: pointer;
   height: 18px;
   width: 18px;
@@ -94,8 +93,6 @@ body {
   pointer-events: all;
   position: relative;
 }
-
-
 
 .dots-container {
   display: flex;
@@ -111,7 +108,7 @@ body {
   width: 12px;
   margin-right: 10px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #000000; /* Зміна кольору на чорний */
   animation: pulse 1.5s infinite ease-in-out;
 }
 
@@ -134,20 +131,20 @@ body {
 @keyframes pulse {
   0% {
     transform: scale(0.8);
-    background-color: #b3d4fc;
-    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+    background-color: #666666; /* Темний відтінок для початку анімації */
+    box-shadow: 0 0 0 0 rgba(102, 102, 102, 0.7);
   }
 
   50% {
     transform: scale(1.2);
-    background-color: #4b79e4;
-    box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+    background-color: #333333; /* Темний відтінок для середини анімації */
+    box-shadow: 0 0 0 10px rgba(102, 102, 102, 0);
   }
 
   100% {
     transform: scale(0.8);
-    background-color: #2584f8;
-    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+    background-color: #000000; /* Кінцевий чорний колір */
+    box-shadow: 0 0 0 0 rgba(102, 102, 102, 0.7);
   }
 }
 

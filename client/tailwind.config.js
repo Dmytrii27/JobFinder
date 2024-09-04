@@ -2,7 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        black: '#000000', // Основний відтінок чорного для всіх елементів
+      },
+    },
   },
   plugins: [],
 };
+
+

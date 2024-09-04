@@ -58,7 +58,7 @@ function MenuList({ user, onClick }) {
           leaveFrom='transform opacity-100 scale-100'
           leaveTo='transform opacity-0 scale-95'
         >
-          <Menu.Items className='absolute z-50 right-2 mt-2 w-56 origin-top-right divide-y dividfe-gray-100 rounded-md bg-white shadow-lg focus:outline-none '>
+          <Menu.Items className='absolute z-50 right-2 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg focus:outline-none '>
             <div className='p-1 '>
               <Menu.Item>
                 {({ active }) => (
@@ -126,14 +126,14 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <ul className='hidden lg:flex gap-10 text-base'>
+          <ul className='hidden lg:flex gap-6 text-base'>
             <li>
               <Link to='/'>Find Job</Link>
             </li>
             <li>
               <Link to='/companies'>Companies</Link>
             </li>
-            {!user?.accountType === "seeker" && (
+            {user?.accountType !== "seeker" && (
               <li>
                 <Link to='/upload-job'>Upload Job</Link>
               </li>
@@ -178,14 +178,14 @@ const Navbar = () => {
           <Link to='/companies' onClick={handleCloseNavbar}>
             Companies
           </Link>
-          {user?.accountType !== "seeker" && (
-            <Link
-              onClick={handleCloseNavbar}
-              to='upload-job'
-            >
-              Upload Job
-            </Link>
-          )}
+          <Link
+            onClick={handleCloseNavbar}
+            to={
+              user?.accountType === "seeker" ? "/applications" : "/upload-job"
+            }
+          >
+            {user?.accountType === "seeker" ? "Applications" : "Upload Job"}
+          </Link>
           <Link to='/about-us' onClick={handleCloseNavbar}>
             About
           </Link>
@@ -211,3 +211,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
