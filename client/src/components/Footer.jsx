@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { footerLinks } from "../utils/data";
 import CustomButton from "./CustomButton";
 import TextInput from "./TextInput";
+import FooterImage from "../assets/Footer_img.png"; // Підключаємо картинку
 
 const Footer = () => {
   return (
@@ -14,7 +15,7 @@ const Footer = () => {
           viewBox='0 0 1200 120'
           xmlns='http://www.w3.org/2000/svg'
           style={{
-            fill: "#1d4ed8",
+            fill: "#000000", // Чорний колір хвилі
             width: "125%",
             height: 112,
             transform: "rotate(180deg)",
@@ -24,40 +25,63 @@ const Footer = () => {
         </svg>
       </div>
 
-      <div className='bg-[#1d4ed8] '>
-        <div className='container px-5 py-20 mx-auto '>
+      <div className='bg-black'>
+        <div className='container px-5 py-20 mx-auto'>
           <div className='w-full flex flex-wrap gap-10 justify-between -mb-10 -px-4'>
             {footerLinks.map(({ id, title, links }) => (
-              <div className='w-auto px-4 ' key={id + title}>
-                <h2 className='font-medium text-white tracking-widest text-sm mb-3'>
-                  {title}
-                </h2>
+              title !== "Company" ? ( // Виключаємо "Company"
+                <div className='w-auto px-4' key={id + title}>
+                  <h2
+                    className={`font-medium text-white tracking-widest ${
+                      title === "Policy" || title === "Support"
+                        ? "underline text-lg font-bold" // Додаємо underline та жирний текст
+                        : "text-sm"
+                    } mb-3`}
+                  >
+                    {title}
+                  </h2>
 
-                <div className='mb-10 flex flex-col gap-3 '>
-                  {links.map((link, index) => (
-                    <Link
-                      key={link + index}
-                      to='/'
-                      className='text-gray-300 text-sm hover:text-white '
-                    >
-                      {link}
-                    </Link>
-                  ))}
+                  <div className='mb-10 flex flex-col gap-3'>
+                    {links.map((link, index) => (
+                      <Link
+                        key={link + index}
+                        to='/'
+                        className='text-gray-300 text-sm hover:text-white'
+                      >
+                        {link}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className='w-auto px-4' key="footer-image">
+                  {/* Додаємо зображення замість "Company" */}
+                  <img 
+                    src={FooterImage} 
+                    alt="Footer logo" 
+                    className='w-full h-auto object-contain' 
+                    style={{
+                      width: '400px',  // Змінюй ширину
+                      height: 'auto',   // Або висоту
+                      marginTop: '-122px', // Підняти зображення вверх на 20px
+                    }}
+                  />
+                </div>
+              )
             ))}
           </div>
         </div>
 
-        <div className=''>
-          <p className='container px-5 mx-auto text-white mt-2 '>
+        {/* Піднімаємо нижні елементи під картинкою */}
+        <div className='' style={{ marginTop: '-90px' }}> {/* Підйом на 40px */}
+          <p className='container px-5 mx-auto text-white mt-2'>
             Subscribe to our Newsletter
           </p>
 
-          <div className='container mx-auto px-5 pt-6 pb-8 flex flex-wrap items-center justify-between '>
-            <div className='w-full md:w-2/4 lg:w-1/3 h-16 flex items-center justify-center md:justify-start '>
+          <div className='container mx-auto px-5 pt-6 pb-8 flex flex-wrap items-center justify-between'>
+            <div className='w-full md:w-2/4 lg:w-1/3 h-16 flex items-center justify-center md:justify-start'>
               <TextInput
-                styles='w-full flex-grow md:w-40 2xl:w-64 bg-gray-100 sm:mr-4 md-2'
+                styles='w-full flex-grow md:w-40 2xl:w-64 bg-gray-100 sm:mr-4 md-2 text-black' // Додано 'text-black'
                 type='email'
                 placeholder='Email Address'
               />
@@ -65,44 +89,41 @@ const Footer = () => {
               <CustomButton
                 title='Subscribe'
                 containerStyles={
-                  "block bg-[#001a36] text-white px-5 py-2.5 text-md rounded hover:bg-blue-800 focus:potline-none flex-col items-center mt-2"
+                  "block bg-white text-black px-5 py-2.5 text-md rounded hover:bg-grey-200 focus:outline-none flex-col items-center mt-2"
                 }
               />
             </div>
 
             <span className='inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto'>
-              <a className='text-white text-xl  hover:scale-125 ease-in-out duration-300'>
+              <a className='text-white text-xl hover:scale-125 ease-in-out duration-300'>
                 <FaFacebookF />
               </a>
-              <a className='ml-3 text-white text-xl  hover:scale-125 ease-in-out duration-300'>
+              <a className='ml-3 text-white text-xl hover:scale-125 ease-in-out duration-300'>
                 <FaTwitter />
               </a>
-              <a className='ml-3 text-white text-xl  hover:scale-125 ease-in-out duration-300'>
+              <a className='ml-3 text-white text-xl hover:scale-125 ease-in-out duration-300'>
                 <FiInstagram />
               </a>
 
-              <a className='ml-3 text-white text-xl  hover:scale-125 ease-in-out duration-300'>
+              <a className='ml-3 text-white text-xl hover:scale-125 ease-in-out duration-300'>
                 <FaLinkedinIn />
               </a>
             </span>
           </div>
         </div>
 
-        <div className='bg-[#001a36]'>
+        <div className='bg-black'>
           <div className='container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row'>
-            <p className='text-gray-300 text-sm text-center sm:text-left'>
-              &copy; 2024 Job Finder —
+            <p className='text-white-300 text-sm text-center sm:text-left'>
+              &copy; 2024 Jobfi.ca —
               <a
-                
-                className='text-[#1199e7] ml-1'
+                className='text-white ml-1'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 Dmytrii Satsiuk
               </a>
             </p>
-
-           
           </div>
         </div>
       </div>

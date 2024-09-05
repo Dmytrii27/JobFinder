@@ -118,8 +118,8 @@ const SignUp = ({ open, setOpen }) => {
                     <button
                       className={`flex-1 px-4 py-2 rounded text-sm outline-none ${
                         accountType === "seeker"
-                          ? "bg-[#1d4fd862] text-blue-900 font-semibold"
-                          : "bg-white border border-blue-400"
+                          ? "bg-black text-white font-semibold"
+                          : "bg-white border border-black"
                       }`}
                       onClick={() => setAccountType("seeker")}
                     >
@@ -128,15 +128,14 @@ const SignUp = ({ open, setOpen }) => {
                     <button
                       className={`flex-1 px-4 py-2 rounded text-sm outline-none ${
                         accountType !== "seeker"
-                          ? "bg-[#1d4fd862] text-blue-900 font-semibold"
-                          : "bg-white border border-blue-400"
+                          ? "bg-black text-white font-semibold"
+                          : "bg-white border border-black"
                       }`}
                       onClick={() => setAccountType("company")}
                     >
                       Company Account
                     </button>
                   </div>
-
                   <form
                     className='w-full flex flex-col gap-5'
                     onSubmit={handleSubmit(onSubmit)}
@@ -271,7 +270,7 @@ const SignUp = ({ open, setOpen }) => {
                       ) : (
                         <CustomButton
                           type='submit'
-                          containerStyles={`inline-flex justify-center rounded-md bg-blue-600 px-8 py-2 text-sm font-medium text-white outline-none hover:bg-blue-800`}
+                          containerStyles={`inline-flex justify-center rounded-md bg-black px-8 py-2 text-sm font-medium text-white outline-none hover:bg-gray-800`}
                           title={
                             isRegister ? "Create Account" : "Login Account"
                           }
@@ -287,7 +286,7 @@ const SignUp = ({ open, setOpen }) => {
                         : "Do not have an account"}
 
                       <span
-                        className='text-sm text-blue-600 ml-2 hover:text-blue-700 hover:font-semibold cursor-pointer'
+                        className='text-sm text-black ml-2 hover:text-gray-800 hover:font-semibold cursor-pointer'
                         onClick={() => setIsRegister((prev) => !prev)}
                       >
                         {isRegister ? "Login" : "Create Account"}

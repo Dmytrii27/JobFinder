@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Logout } from "../redux/userSlice";
 import CustomButton from "./CustomButton";
+import Logo_main from '../assets/Logo_main.png'; // Імпорт логотипу
 
 function MenuList({ user, onClick }) {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function MenuList({ user, onClick }) {
               <p className='text-sm font-semibold '>
                 {user?.firstName ?? user?.name}
               </p>
-              <span className='text-sm text-blue-600 '>
+              <span className='text-sm text-black '>
                 {user?.jobTitle ?? user?.email}
               </span>
             </div>
@@ -38,7 +39,7 @@ function MenuList({ user, onClick }) {
                 className='w-10 h-10 rounded-full object-cover '
               />
             ) : (
-              <div className='w-10 h-10 rounded-full bg-indigo-600 text-white text-lg flex items-center justify-center'>
+              <div className='w-10 h-10 rounded-full bg-black text-white text-lg flex items-center justify-center'>
                 {user?.firstName?.slice(0, 1) || user?.name?.slice(0, 1)}
               </div>
             )}
@@ -67,7 +68,7 @@ function MenuList({ user, onClick }) {
                       user?.accountType ? "user-profile" : "company-profile"
                     }`}
                     className={`${
-                      active ? "bg-blue-500 text-white" : "text-gray-900"
+                      active ? "bg-black text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md p-2 text-sm`}
                     onClick={onClick}
                   >
@@ -87,7 +88,7 @@ function MenuList({ user, onClick }) {
                   <button
                     onClick={() => handleLogout()}
                     className={`${
-                      active ? "bg-blue-500 text-white" : "text-gray-900"
+                      active ? "bg-black text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     <AiOutlineLogout
@@ -119,10 +120,14 @@ const Navbar = () => {
   return (
     <>
       <div className='relative bg-[#f7fdfd] z-50'>
-        <nav className='container mx-auto flex items-center justify-between p-5'>
+        <nav className='container mx-auto flex items-center justify-between p-5 mt-[-70px]'>
           <div>
-            <Link to='/' className='text-blue-600 font-bold text-xl'>
-              Job<span className='text-[#1677cccb]'>Finder</span>
+            <Link to='/'>
+              <img
+                src={Logo_main} 
+                alt='Job Finder Logo'
+                className='h-40 w-30'
+              />
             </Link>
           </div>
 
@@ -143,12 +148,13 @@ const Navbar = () => {
             </li>
           </ul>
 
+
           <div className='hidden lg:block'>
             {!user?.token ? (
               <a href='/user-auth'>
                 <CustomButton
                   title='Sign In'
-                  containerStyles='text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600'
+                  containerStyles='text-black py-1.5 px-5 focus:outline-none hover:bg-black hover:text-white rounded-full text-base border border-black'
                 />
               </a>
             ) : (
@@ -195,7 +201,7 @@ const Navbar = () => {
               <a href='/user-auth'>
                 <CustomButton
                   title='Sign In'
-                  containerStyles={`text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600`}
+                  containerStyles={`text-black py-1.5 px-5 focus:outline-none hover:bg-black hover:text-white rounded-full text-base border border-black`}
                 />
               </a>
             ) : (
@@ -211,4 +217,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
